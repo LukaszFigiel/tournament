@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "tournament",
+    "packageName": "pl.mamuti.tournament",
+    "packageFolder": "pl/mamuti/tournament",
+    "serverPort": 8080,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "enableSwaggerCodegen": false,
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "enableTranslation": false,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "5.8.1",
+    "jwtSecretKey": "YmM3Yjg4OThmZDYwNTVmODIxYTcxOGE0Yjk3MGE1ZjIzYzk2MTAxNmE5MGM3NmYzNWZhMzQ3MDYyMjZjYTdlZTkxMGJmNjg2ZDk2ZWI5ZDI3NGJiZjViZDYyZjU5NzkwNjgxYzQ4NTQxMmJkZmY5N2M2MDRmMTZlZDAyYzBmY2U=",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": []
+  },
+  "git-provider": "GitHub",
+  "git-company": "LukaszFigiel",
+  "repository-name": "tournament"
+}
