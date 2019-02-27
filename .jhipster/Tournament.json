@@ -1,0 +1,32 @@
+{
+    "name": "Tournament",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "teams",
+            "otherEntityName": "team",
+            "otherEntityRelationshipName": "tournament"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "matches",
+            "otherEntityName": "match",
+            "otherEntityRelationshipName": "tournament"
+        }
+    ],
+    "changelogDate": "20190227102201",
+    "entityTableName": "tournament",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

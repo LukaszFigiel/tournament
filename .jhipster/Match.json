@@ -1,0 +1,56 @@
+{
+    "name": "Match",
+    "fields": [
+        {
+            "fieldName": "played",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "team1Score",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "team2Score",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "team1Goals",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "team2Goals",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "team1",
+            "otherEntityName": "team",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "match"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "team2",
+            "otherEntityName": "team",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "match"
+        },
+        {
+            "relationshipName": "tournament",
+            "otherEntityName": "tournament",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190227102200",
+    "entityTableName": "match",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

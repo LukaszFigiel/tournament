@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-team-heading">Create or edit a Team</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!team.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="team.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="team.name" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_player1">Player 1</label>
+                    <select class="form-control" id="field_player1" name="player1" [(ngModel)]="team.player1" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="playerOption.id === team.player1?.id ? team.player1 : playerOption" *ngFor="let playerOption of players; trackBy: trackPlayerById">{{playerOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_player2">Player 2</label>
+                    <select class="form-control" id="field_player2" name="player2" [(ngModel)]="team.player2" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="playerOption.id === team.player2?.id ? team.player2 : playerOption" *ngFor="let playerOption of players; trackBy: trackPlayerById">{{playerOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tournament">Tournament</label>
+                    <select class="form-control" id="field_tournament" name="tournament" [(ngModel)]="team.tournament" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tournamentOption.id === team.tournament?.id ? team.tournament : tournamentOption" *ngFor="let tournamentOption of tournaments; trackBy: trackTournamentById">{{tournamentOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

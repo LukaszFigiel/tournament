@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-match-heading">Create or edit a Match</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!match.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="match.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_played">Played</label>
+                    <input type="checkbox" class="form-control" name="played" id="field_played"
+                        [(ngModel)]="match.played" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_team1Score">Team 1 Score</label>
+                    <input type="number" class="form-control" name="team1Score" id="field_team1Score"
+                        [(ngModel)]="match.team1Score" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_team2Score">Team 2 Score</label>
+                    <input type="number" class="form-control" name="team2Score" id="field_team2Score"
+                        [(ngModel)]="match.team2Score" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_team1Goals">Team 1 Goals</label>
+                    <input type="number" class="form-control" name="team1Goals" id="field_team1Goals"
+                        [(ngModel)]="match.team1Goals" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_team2Goals">Team 2 Goals</label>
+                    <input type="number" class="form-control" name="team2Goals" id="field_team2Goals"
+                        [(ngModel)]="match.team2Goals" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_team1">Team 1</label>
+                    <select class="form-control" id="field_team1" name="team1" [(ngModel)]="match.team1" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="teamOption.id === match.team1?.id ? match.team1 : teamOption" *ngFor="let teamOption of teams; trackBy: trackTeamById">{{teamOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_team2">Team 2</label>
+                    <select class="form-control" id="field_team2" name="team2" [(ngModel)]="match.team2" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="teamOption.id === match.team2?.id ? match.team2 : teamOption" *ngFor="let teamOption of teams; trackBy: trackTeamById">{{teamOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tournament">Tournament</label>
+                    <select class="form-control" id="field_tournament" name="tournament" [(ngModel)]="match.tournament" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tournamentOption.id === match.tournament?.id ? match.tournament : tournamentOption" *ngFor="let tournamentOption of tournaments; trackBy: trackTournamentById">{{tournamentOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
