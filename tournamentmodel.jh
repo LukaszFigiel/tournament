@@ -1,0 +1,43 @@
+entity Player {
+	name String
+}
+
+entity Team {
+	name String
+}
+
+entity Match {
+    played Boolean,
+    team1Score Number
+    team2Score Number,
+    team1Goals Number,
+    team2Goals Number
+}
+
+entity Tournament {
+	name String
+}
+
+relationship ManyToOne {
+	Team{player1} to Player,
+    Team{player2} to Player,
+    Match{team1} to Team,
+    Match{team2} to Team
+}
+
+relationship OneToMany {
+	Tournament{teams} to Team,
+    Tournament{matches} to Match,
+}
+
+// Set pagination options
+paginate Team, Player with infinite-scroll
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
