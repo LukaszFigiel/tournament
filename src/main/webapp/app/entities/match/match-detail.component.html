@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="match">
+            <h2><span>Match</span> {{match.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Played</span></dt>
+                <dd>
+                    <span>{{match.played}}</span>
+                </dd>
+                <dt><span>Team 1 Score</span></dt>
+                <dd>
+                    <span>{{match.team1Score}}</span>
+                </dd>
+                <dt><span>Team 2 Score</span></dt>
+                <dd>
+                    <span>{{match.team2Score}}</span>
+                </dd>
+                <dt><span>Team 1 Goals</span></dt>
+                <dd>
+                    <span>{{match.team1Goals}}</span>
+                </dd>
+                <dt><span>Team 2 Goals</span></dt>
+                <dd>
+                    <span>{{match.team2Goals}}</span>
+                </dd>
+                <dt><span>Team 1</span></dt>
+                <dd>
+                    <div *ngIf="match.team1">
+                        <a [routerLink]="['/team', match.team1?.id, 'view']">{{match.team1?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Team 2</span></dt>
+                <dd>
+                    <div *ngIf="match.team2">
+                        <a [routerLink]="['/team', match.team2?.id, 'view']">{{match.team2?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Tournament</span></dt>
+                <dd>
+                    <div *ngIf="match.tournament">
+                        <a [routerLink]="['/tournament', match.tournament?.id, 'view']">{{match.tournament?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/match', match.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

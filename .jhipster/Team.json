@@ -1,0 +1,40 @@
+{
+    "name": "Team",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "player1",
+            "otherEntityName": "player",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "team"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "player2",
+            "otherEntityName": "player",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "team"
+        },
+        {
+            "relationshipName": "tournament",
+            "otherEntityName": "tournament",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190227102159",
+    "entityTableName": "team",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

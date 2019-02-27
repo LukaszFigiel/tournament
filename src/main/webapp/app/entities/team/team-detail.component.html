@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="team">
+            <h2><span>Team</span> {{team.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{team.name}}</span>
+                </dd>
+                <dt><span>Player 1</span></dt>
+                <dd>
+                    <div *ngIf="team.player1">
+                        <a [routerLink]="['/player', team.player1?.id, 'view']">{{team.player1?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Player 2</span></dt>
+                <dd>
+                    <div *ngIf="team.player2">
+                        <a [routerLink]="['/player', team.player2?.id, 'view']">{{team.player2?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Tournament</span></dt>
+                <dd>
+                    <div *ngIf="team.tournament">
+                        <a [routerLink]="['/tournament', team.tournament?.id, 'view']">{{team.tournament?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/team', team.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
