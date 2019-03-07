@@ -27,6 +27,10 @@ public class Season implements Serializable {
     @Column(name = "jhi_number")
     private Integer number;
 
+    @ManyToOne
+    @JsonIgnoreProperties("seasons")
+    private League league;
+
     @OneToMany(mappedBy = "season")
     private Set<Team> teams = new HashSet<>();
     @OneToMany(mappedBy = "season")
@@ -55,6 +59,19 @@ public class Season implements Serializable {
 
     public void setNumber(Integer number) {
         this.number = number;
+    }
+
+    public League getLeague() {
+        return league;
+    }
+
+    public Season league(League league) {
+        this.league = league;
+        return this;
+    }
+
+    public void setLeague(League league) {
+        this.league = league;
     }
 
     public Set<Team> getTeams() {
