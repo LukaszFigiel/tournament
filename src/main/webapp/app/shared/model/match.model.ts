@@ -1,5 +1,5 @@
 import { ITeam } from 'app/shared/model/team.model';
-import { ITournament } from 'app/shared/model/tournament.model';
+import { ISeason } from 'app/shared/model/season.model';
 
 export interface IMatch {
     id?: number;
@@ -10,7 +10,7 @@ export interface IMatch {
     team2Goals?: number;
     team1?: ITeam;
     team2?: ITeam;
-    tournament?: ITournament;
+    season?: ISeason;
 }
 
 export class Match implements IMatch {
@@ -23,7 +23,7 @@ export class Match implements IMatch {
         public team2Goals?: number,
         public team1?: ITeam,
         public team2?: ITeam,
-        public tournament?: ITournament
+        public season?: ISeason
     ) {
         this.played = this.played || false;
     }

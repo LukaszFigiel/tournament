@@ -21,10 +21,10 @@
                         <a [routerLink]="['/player', team.player2?.id, 'view']">{{team.player2?.id}}</a>
                     </div>
                 </dd>
-                <dt><span>Tournament</span></dt>
+                <dt><span>Season</span></dt>
                 <dd>
-                    <div *ngIf="team.tournament">
-                        <a [routerLink]="['/tournament', team.tournament?.id, 'view']">{{team.tournament?.id}}</a>
+                    <div *ngIf="team.season">
+                        <a [routerLink]="['/season', team.season?.id, 'view']">{{team.season?.id}}</a>
                     </div>
                 </dd>
             </dl>

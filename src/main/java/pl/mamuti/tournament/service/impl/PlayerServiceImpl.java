@@ -74,6 +74,7 @@ public class PlayerServiceImpl implements PlayerService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Player : {}", id);        playerRepository.deleteById(id);
+        log.debug("Request to delete Player : {}", id);
+        playerRepository.deleteById(id);
     }
 }
