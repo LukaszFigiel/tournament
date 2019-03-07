@@ -17,10 +17,6 @@ import { RouterModule } from '@angular/router';
                 loadChildren: './match/match.module#TournamentMatchModule'
             },
             {
-                path: 'tournament',
-                loadChildren: './tournament/tournament.module#TournamentTournamentModule'
-            },
-            {
                 path: 'player',
                 loadChildren: './player/player.module#TournamentPlayerModule'
             },
