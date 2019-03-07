@@ -33,6 +33,7 @@ relationship ManyToOne {
 relationship OneToMany {
 	Season{teams} to Team,
     Season{matches} to Match,
+    League{Season} to Season,
 }
 
 // Set pagination options
