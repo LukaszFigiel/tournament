@@ -8,16 +8,8 @@ export interface ISeason {
     league?: ILeague;
     teams?: ITeam[];
     matches?: IMatch[];
-    league?: ILeague;
 }
 
 export class Season implements ISeason {
-    constructor(
-        public id?: number,
-        public number?: number,
-        public league?: ILeague,
-        public teams?: ITeam[],
-        public matches?: IMatch[],
-        public league?: ILeague
-    ) {}
+    constructor(public id?: number, public number?: number, public league?: ILeague, public teams?: ITeam[], public matches?: IMatch[]) {}
 }

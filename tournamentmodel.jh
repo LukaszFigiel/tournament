@@ -26,14 +26,13 @@ relationship ManyToOne {
 	Team{player1} to Player,
     Team{player2} to Player,
     Match{team1} to Team,
-    Match{team2} to Team,
-    Season{League} to League
+    Match{team2} to Team
 }
 
 relationship OneToMany {
 	Season{teams} to Team,
     Season{matches} to Match,
-    League{Season} to Season,
+    League{season} to Season,
 }
 
 // Set pagination options
