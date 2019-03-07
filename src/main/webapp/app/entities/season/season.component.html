@@ -17,6 +17,7 @@
             <th><span>ID</span></th>
             <th><span>Number</span></th>
             <th><span>League</span></th>
+            <th><span>League</span></th>
             <th></th>
             </tr>
             </thead>
@@ -24,6 +25,11 @@
             <tr *ngFor="let season of seasons ;trackBy: trackId">
                 <td><a [routerLink]="['/season', season.id, 'view' ]">{{season.id}}</a></td>
                 <td>{{season.number}}</td>
+                <td>
+                    <div *ngIf="season.league">
+                        <a [routerLink]="['../league', season.league?.id, 'view' ]" >{{season.league?.id}}</a>
+                    </div>
+                </td>
                 <td>
                     <div *ngIf="season.league">
                         <a [routerLink]="['../league', season.league?.id, 'view' ]" >{{season.league?.id}}</a>

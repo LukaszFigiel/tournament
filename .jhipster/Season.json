@@ -8,6 +8,12 @@
     ],
     "relationships": [
         {
+            "relationshipName": "league",
+            "otherEntityName": "league",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
             "relationshipType": "one-to-many",
             "otherEntityName": "team",
             "otherEntityRelationshipName": "season",

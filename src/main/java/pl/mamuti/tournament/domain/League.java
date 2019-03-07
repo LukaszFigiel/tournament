@@ -1,10 +1,13 @@
 package pl.mamuti.tournament.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -23,6 +26,8 @@ public class League implements Serializable {
     @Column(name = "name")
     private String name;
 
+    @OneToMany(mappedBy = "league")
+    private Set<Season> seasons = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -43,6 +48,31 @@ public class League implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Season> getSeasons() {
+        return seasons;
+    }
+
+    public League seasons(Set<Season> seasons) {
+        this.seasons = seasons;
+        return this;
+    }
+
+    public League addSeason(Season season) {
+        this.seasons.add(season);
+        season.setLeague(this);
+        return this;
+    }
+
+    public League removeSeason(Season season) {
+        this.seasons.remove(season);
+        season.setLeague(null);
+        return this;
+    }
+
+    public void setSeasons(Set<Season> seasons) {
+        this.seasons = seasons;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -6,7 +6,14 @@
             "fieldType": "String"
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "season",
+            "otherEntityRelationshipName": "league",
+            "relationshipName": "season"
+        }
+    ],
     "changelogDate": "20190307072344",
     "entityTableName": "league",
     "dto": "no",
