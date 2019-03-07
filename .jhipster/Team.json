@@ -9,21 +9,21 @@
     "relationships": [
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "player1",
             "otherEntityName": "player",
-            "otherEntityField": "id",
-            "otherEntityRelationshipName": "team"
+            "otherEntityRelationshipName": "team",
+            "relationshipName": "player1",
+            "otherEntityField": "id"
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "player2",
             "otherEntityName": "player",
-            "otherEntityField": "id",
-            "otherEntityRelationshipName": "team"
+            "otherEntityRelationshipName": "team",
+            "relationshipName": "player2",
+            "otherEntityField": "id"
         },
         {
-            "relationshipName": "tournament",
-            "otherEntityName": "tournament",
+            "relationshipName": "season",
+            "otherEntityName": "season",
             "relationshipType": "many-to-one",
             "otherEntityField": "id"
         }

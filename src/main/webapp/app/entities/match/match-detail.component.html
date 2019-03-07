@@ -37,10 +37,10 @@
                         <a [routerLink]="['/team', match.team2?.id, 'view']">{{match.team2?.id}}</a>
                     </div>
                 </dd>
-                <dt><span>Tournament</span></dt>
+                <dt><span>Season</span></dt>
                 <dd>
-                    <div *ngIf="match.tournament">
-                        <a [routerLink]="['/tournament', match.tournament?.id, 'view']">{{match.tournament?.id}}</a>
+                    <div *ngIf="match.season">
+                        <a [routerLink]="['/season', match.season?.id, 'view']">{{match.season?.id}}</a>
                     </div>
                 </dd>
             </dl>

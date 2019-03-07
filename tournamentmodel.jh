@@ -14,20 +14,25 @@ entity Match {
     team2Goals Integer
 }
 
-entity Tournament {
+entity League {
 	name String
+}
+
+entity Season {
+	number Integer
 }
 
 relationship ManyToOne {
 	Team{player1} to Player,
     Team{player2} to Player,
     Match{team1} to Team,
-    Match{team2} to Team
+    Match{team2} to Team,
+    Season{League} to League
 }
 
 relationship OneToMany {
-	Tournament{teams} to Team,
-    Tournament{matches} to Match,
+	Season{teams} to Team,
+    Season{matches} to Match,
 }
 
 // Set pagination options

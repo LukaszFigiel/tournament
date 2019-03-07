@@ -20,11 +20,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="player"/>
 
-        <addForeignKeyConstraint baseColumnNames="tournament_id"
+        <addForeignKeyConstraint baseColumnNames="season_id"
                                  baseTableName="team"
-                                 constraintName="fk_team_tournament_id"
+                                 constraintName="fk_team_season_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="tournament"/>
+                                 referencedTableName="season"/>
 
     </changeSet>
 </databaseChangeLog>

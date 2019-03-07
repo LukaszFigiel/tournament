@@ -18,7 +18,7 @@
             <th jhiSortBy="name"><span>Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="player1.id"><span>Player 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="player2.id"><span>Player 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="tournament.id"><span>Tournament</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="season.id"><span>Season</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -37,8 +37,8 @@
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="team.tournament">
-                        <a [routerLink]="['../tournament', team.tournament?.id, 'view' ]" >{{team.tournament?.id}}</a>
+                    <div *ngIf="team.season">
+                        <a [routerLink]="['../season', team.season?.id, 'view' ]" >{{team.season?.id}}</a>
                     </div>
                 </td>
                 <td class="text-right">

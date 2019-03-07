@@ -72,6 +72,7 @@ public class MatchServiceImpl implements MatchService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Match : {}", id);        matchRepository.deleteById(id);
+        log.debug("Request to delete Match : {}", id);
+        matchRepository.deleteById(id);
     }
 }

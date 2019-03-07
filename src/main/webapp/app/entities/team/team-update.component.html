@@ -30,10 +30,10 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_tournament">Tournament</label>
-                    <select class="form-control" id="field_tournament" name="tournament" [(ngModel)]="team.tournament" >
+                    <label class="form-control-label" for="field_season">Season</label>
+                    <select class="form-control" id="field_season" name="season" [(ngModel)]="team.season" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="tournamentOption.id === team.tournament?.id ? team.tournament : tournamentOption" *ngFor="let tournamentOption of tournaments; trackBy: trackTournamentById">{{tournamentOption.id}}</option>
+                        <option [ngValue]="seasonOption.id === team.season?.id ? team.season : seasonOption" *ngFor="let seasonOption of seasons; trackBy: trackSeasonById">{{seasonOption.id}}</option>
                     </select>
                 </div>
             </div>

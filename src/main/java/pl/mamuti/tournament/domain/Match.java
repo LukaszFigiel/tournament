@@ -46,7 +46,7 @@ public class Match implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties("matches")
-    private Tournament tournament;
+    private Season season;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -148,17 +148,17 @@ public class Match implements Serializable {
         this.team2 = team;
     }
 
-    public Tournament getTournament() {
-        return tournament;
+    public Season getSeason() {
+        return season;
     }
 
-    public Match tournament(Tournament tournament) {
-        this.tournament = tournament;
+    public Match season(Season season) {
+        this.season = season;
         return this;
     }
 
-    public void setTournament(Tournament tournament) {
-        this.tournament = tournament;
+    public void setSeason(Season season) {
+        this.season = season;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

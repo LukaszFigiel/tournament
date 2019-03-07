@@ -74,6 +74,7 @@ public class TeamServiceImpl implements TeamService {
      */
     @Override
     public void delete(Long id) {
-        log.debug("Request to delete Team : {}", id);        teamRepository.deleteById(id);
+        log.debug("Request to delete Team : {}", id);
+        teamRepository.deleteById(id);
     }
 }

@@ -8,8 +8,8 @@ import { IMatch } from 'app/shared/model/match.model';
 import { MatchService } from './match.service';
 import { ITeam } from 'app/shared/model/team.model';
 import { TeamService } from 'app/entities/team';
-import { ITournament } from 'app/shared/model/tournament.model';
-import { TournamentService } from 'app/entities/tournament';
+import { ISeason } from 'app/shared/model/season.model';
+import { SeasonService } from 'app/entities/season';
 
 @Component({
     selector: 'jhi-match-update',
@@ -21,13 +21,13 @@ export class MatchUpdateComponent implements OnInit {
 
     teams: ITeam[];
 
-    tournaments: ITournament[];
+    seasons: ISeason[];
 
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected matchService: MatchService,
         protected teamService: TeamService,
-        protected tournamentService: TournamentService,
+        protected seasonService: SeasonService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -43,13 +43,13 @@ export class MatchUpdateComponent implements OnInit {
                 map((response: HttpResponse<ITeam[]>) => response.body)
             )
             .subscribe((res: ITeam[]) => (this.teams = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.tournamentService
+        this.seasonService
             .query()
             .pipe(
-                filter((mayBeOk: HttpResponse<ITournament[]>) => mayBeOk.ok),
-                map((response: HttpResponse<ITournament[]>) => response.body)
+                filter((mayBeOk: HttpResponse<ISeason[]>) => mayBeOk.ok),
+                map((response: HttpResponse<ISeason[]>) => response.body)
             )
-            .subscribe((res: ITournament[]) => (this.tournaments = res), (res: HttpErrorResponse) => this.onError(res.message));
+            .subscribe((res: ISeason[]) => (this.seasons = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {
@@ -86,7 +86,7 @@ export class MatchUpdateComponent implements OnInit {
         return item.id;
     }
 
-    trackTournamentById(index: number, item: ITournament) {
+    trackSeasonById(index: number, item: ISeason) {
         return item.id;
     }
 }
