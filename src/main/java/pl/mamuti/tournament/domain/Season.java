@@ -35,10 +35,6 @@ public class Season implements Serializable {
     private Set<Team> teams = new HashSet<>();
     @OneToMany(mappedBy = "season")
     private Set<Match> matches = new HashSet<>();
-    @ManyToOne
-    @JsonIgnoreProperties("seasons")
-    private League league;
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -122,19 +118,6 @@ public class Season implements Serializable {
 
     public void setMatches(Set<Match> matches) {
         this.matches = matches;
-    }
-
-    public League getLeague() {
-        return league;
-    }
-
-    public Season league(League league) {
-        this.league = league;
-        return this;
-    }
-
-    public void setLeague(League league) {
-        this.league = league;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

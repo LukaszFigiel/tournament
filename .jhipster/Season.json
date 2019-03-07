@@ -24,13 +24,6 @@
             "otherEntityName": "match",
             "otherEntityRelationshipName": "season",
             "relationshipName": "matches"
-        },
-        {
-            "relationshipType": "many-to-one",
-            "otherEntityName": "league",
-            "otherEntityRelationshipName": "season",
-            "relationshipName": "league",
-            "otherEntityField": "id"
         }
     ],
     "changelogDate": "20190307072345",
