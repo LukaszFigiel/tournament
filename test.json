@@ -1,0 +1,290 @@
+[
+    {
+        "name": "",
+        "teamList": [],
+        "matches": [],
+        "teams": [
+            {
+                "team": {
+                    "id": 1,
+                    "name": "Team1",
+                    "group": "A",
+                    "player1": {
+                        "id": 9,
+                        "name": "Karpiu"
+                    },
+                    "player2": {
+                        "id": 10,
+                        "name": "Michał Hass"
+                    },
+                    "season": {
+                        "id": 1,
+                        "number": 1,
+                        "groupsCount": 2,
+                        "league": {
+                            "id": 1,
+                            "name": "Ekstraklasa"
+                        },
+                        "matches": []
+                    }
+                },
+                "matches": [],
+                "matchesPlayed": 0,
+                "points": 0,
+                "goalsBalance": 0
+            }
+        ]
+    },
+    {
+        "name": "",
+        "teamList": [],
+        "matches": [],
+        "teams": [
+            {
+                "team": {
+                    "id": 2,
+                    "name": "Team2",
+                    "group": "A",
+                    "player1": {
+                        "id": 11,
+                        "name": "Marcin Cz,"
+                    },
+                    "player2": {
+                        "id": 12,
+                        "name": "Lukas"
+                    },
+                    "season": {
+                        "id": 1,
+                        "number": 1,
+                        "groupsCount": 2,
+                        "league": {
+                            "id": 1,
+                            "name": "Ekstraklasa"
+                        },
+                        "matches": []
+                    }
+                },
+                "matches": [],
+                "matchesPlayed": 0,
+                "points": 0,
+                "goalsBalance": 0
+            }
+        ]
+    },
+    {
+        "name": "",
+        "teamList": [],
+        "matches": [],
+        "teams": [
+            {
+                "team": {
+                    "id": 3,
+                    "name": "Team3",
+                    "group": "A",
+                    "player1": {
+                        "id": 13,
+                        "name": "Gocu"
+                    },
+                    "player2": {
+                        "id": 14,
+                        "name": "Piotr T."
+                    },
+                    "season": {
+                        "id": 1,
+                        "number": 1,
+                        "groupsCount": 2,
+                        "league": {
+                            "id": 1,
+                            "name": "Ekstraklasa"
+                        },
+                        "matches": []
+                    }
+                },
+                "matches": [],
+                "matchesPlayed": 0,
+                "points": 0,
+                "goalsBalance": 0
+            }
+        ]
+    },
+    {
+        "name": "",
+        "teamList": [],
+        "matches": [],
+        "teams": [
+            {
+                "team": {
+                    "id": 4,
+                    "name": "Team4",
+                    "group": "A",
+                    "player1": {
+                        "id": 15,
+                        "name": "Kurczak"
+                    },
+                    "player2": {
+                        "id": 16,
+                        "name": "Mati Kosa"
+                    },
+                    "season": {
+                        "id": 1,
+                        "number": 1,
+                        "groupsCount": 2,
+                        "league": {
+                            "id": 1,
+                            "name": "Ekstraklasa"
+                        },
+                        "matches": []
+                    }
+                },
+                "matches": [],
+                "matchesPlayed": 0,
+                "points": 0,
+                "goalsBalance": 0
+            }
+        ]
+    },
+    {
+        "name": "",
+        "teamList": [],
+        "matches": [],
+        "teams": [
+            {
+                "team": {
+                    "id": 5,
+                    "name": "Team1",
+                    "group": "B",
+                    "player1": {
+                        "id": 7,
+                        "name": "Bartek"
+                    },
+                    "player2": {
+                        "id": 8,
+                        "name": "Łukasz Chudy"
+                    },
+                    "season": {
+                        "id": 1,
+                        "number": 1,
+                        "groupsCount": 2,
+                        "league": {
+                            "id": 1,
+                            "name": "Ekstraklasa"
+                        },
+                        "matches": []
+                    }
+                },
+                "matches": [],
+                "matchesPlayed": 0,
+                "points": 0,
+                "goalsBalance": 0
+            }
+        ]
+    },
+    {
+        "name": "",
+        "teamList": [],
+        "matches": [],
+        "teams": [
+            {
+                "team": {
+                    "id": 6,
+                    "name": "Team2",
+                    "group": "B",
+                    "player1": {
+                        "id": 5,
+                        "name": "Darek"
+                    },
+                    "player2": {
+                        "id": 6,
+                        "name": "Radek"
+                    },
+                    "season": {
+                        "id": 1,
+                        "number": 1,
+                        "groupsCount": 2,
+                        "league": {
+                            "id": 1,
+                            "name": "Ekstraklasa"
+                        },
+                        "matches": []
+                    }
+                },
+                "matches": [],
+                "matchesPlayed": 0,
+                "points": 0,
+                "goalsBalance": 0
+            }
+        ]
+    },
+    {
+        "name": "",
+        "teamList": [],
+        "matches": [],
+        "teams": [
+            {
+                "team": {
+                    "id": 7,
+                    "name": "Team3",
+                    "group": "B",
+                    "player1": {
+                        "id": 1,
+                        "name": "Patryk"
+                    },
+                    "player2": {
+                        "id": 2,
+                        "name": "Łukasz F"
+                    },
+                    "season": {
+                        "id": 1,
+                        "number": 1,
+                        "groupsCount": 2,
+                        "league": {
+                            "id": 1,
+                            "name": "Ekstraklasa"
+                        },
+                        "matches": []
+                    }
+                },
+                "matches": [],
+                "matchesPlayed": 0,
+                "points": 0,
+                "goalsBalance": 0
+            }
+        ]
+    },
+    {
+        "name": "",
+        "teamList": [],
+        "matches": [],
+        "teams": [
+            {
+                "team": {
+                    "id": 8,
+                    "name": "Team4",
+                    "group": "B",
+                    "player1": {
+                        "id": 3,
+                        "name": "Bystry"
+                    },
+                    "player2": {
+                        "id": 4,
+                        "name": "Tadeusz"
+                    },
+                    "season": {
+                        "id": 1,
+                        "number": 1,
+                        "groupsCount": 2,
+                        "league": {
+                            "id": 1,
+                            "name": "Ekstraklasa"
+                        },
+                        "matches": []
+                    }
+                },
+                "matches": [],
+                "matchesPlayed": 0,
+                "points": 0,
+                "goalsBalance": 0
+            }
+        ]
+    }
+]
