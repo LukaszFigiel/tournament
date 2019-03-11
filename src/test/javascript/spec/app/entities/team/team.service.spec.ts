@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(TeamService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new Team(0, 'AAAAAAA');
+            elemDefault = new Team(0, 'AAAAAAA', 'AAAAAAA');
         });
 
         describe('Service methods', async () => {
@@ -55,7 +55,8 @@ describe('Service Tests', () => {
             it('should update a Team', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        name: 'BBBBBB'
+                        name: 'BBBBBB',
+                        group: 'BBBBBB'
                     },
                     elemDefault
                 );
@@ -72,7 +73,8 @@ describe('Service Tests', () => {
             it('should return a list of Team', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        name: 'BBBBBB'
+                        name: 'BBBBBB',
+                        group: 'BBBBBB'
                     },
                     elemDefault
                 );

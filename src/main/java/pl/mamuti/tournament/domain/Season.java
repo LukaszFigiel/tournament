@@ -27,6 +27,9 @@ public class Season implements Serializable {
     @Column(name = "jhi_number")
     private Integer number;
 
+    @Column(name = "groups_count")
+    private Integer groupsCount;
+
     @ManyToOne
     @JsonIgnoreProperties("seasons")
     private League league;
@@ -55,6 +58,19 @@ public class Season implements Serializable {
 
     public void setNumber(Integer number) {
         this.number = number;
+    }
+
+    public Integer getGroupsCount() {
+        return groupsCount;
+    }
+
+    public Season groupsCount(Integer groupsCount) {
+        this.groupsCount = groupsCount;
+        return this;
+    }
+
+    public void setGroupsCount(Integer groupsCount) {
+        this.groupsCount = groupsCount;
     }
 
     public League getLeague() {
@@ -146,6 +162,7 @@ public class Season implements Serializable {
         return "Season{" +
             "id=" + getId() +
             ", number=" + getNumber() +
+            ", groupsCount=" + getGroupsCount() +
             "}";
     }
 }

@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(SeasonService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new Season(0, 0);
+            elemDefault = new Season(0, 0, 0);
         });
 
         describe('Service methods', async () => {
@@ -55,7 +55,8 @@ describe('Service Tests', () => {
             it('should update a Season', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        number: 1
+                        number: 1,
+                        groupsCount: 1
                     },
                     elemDefault
                 );
@@ -72,7 +73,8 @@ describe('Service Tests', () => {
             it('should return a list of Season', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        number: 1
+                        number: 1,
+                        groupsCount: 1
                     },
                     elemDefault
                 );

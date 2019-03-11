@@ -4,6 +4,10 @@
         {
             "fieldName": "number",
             "fieldType": "Integer"
+        },
+        {
+            "fieldName": "groupsCount",
+            "fieldType": "Integer"
         }
     ],
     "relationships": [
