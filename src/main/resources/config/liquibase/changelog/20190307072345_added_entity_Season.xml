@@ -26,6 +26,10 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="groups_count" type="integer">
+                <constraints nullable="true" />
+            </column>
+
             <column name="league_id" type="bigint">
                 <constraints nullable="true" />
             </column>

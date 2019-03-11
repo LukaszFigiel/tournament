@@ -24,6 +24,9 @@ public class Team implements Serializable {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "jhi_group")
+    private String group;
+
     @ManyToOne
     @JsonIgnoreProperties("teams")
     private Player player1;
@@ -56,6 +59,19 @@ public class Team implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public Team group(String group) {
+        this.group = group;
+        return this;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 
     public Player getPlayer1() {
@@ -123,6 +139,7 @@ public class Team implements Serializable {
         return "Team{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
+            ", group='" + getGroup() + "'" +
             "}";
     }
 }

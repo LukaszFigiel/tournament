@@ -44,6 +44,9 @@ public class TeamResourceIntTest {
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
     private static final String UPDATED_NAME = "BBBBBBBBBB";
 
+    private static final String DEFAULT_GROUP = "AAAAAAAAAA";
+    private static final String UPDATED_GROUP = "BBBBBBBBBB";
+
     @Autowired
     private TeamRepository teamRepository;
 
@@ -89,7 +92,8 @@ public class TeamResourceIntTest {
      */
     public static Team createEntity(EntityManager em) {
         Team team = new Team()
-            .name(DEFAULT_NAME);
+            .name(DEFAULT_NAME)
+            .group(DEFAULT_GROUP);
         return team;
     }
 
@@ -114,6 +118,7 @@ public class TeamResourceIntTest {
         assertThat(teamList).hasSize(databaseSizeBeforeCreate + 1);
         Team testTeam = teamList.get(teamList.size() - 1);
         assertThat(testTeam.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testTeam.getGroup()).isEqualTo(DEFAULT_GROUP);
     }
 
     @Test
@@ -146,7 +151,8 @@ public class TeamResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(team.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+            .andExpect(jsonPath("$.[*].group").value(hasItem(DEFAULT_GROUP.toString())));
     }
     
     @Test
@@ -160,7 +166,8 @@ public class TeamResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(team.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
+            .andExpect(jsonPath("$.group").value(DEFAULT_GROUP.toString()));
     }
 
     @Test
@@ -184,7 +191,8 @@ public class TeamResourceIntTest {
         // Disconnect from session so that the updates on updatedTeam are not directly saved in db
         em.detach(updatedTeam);
         updatedTeam
-            .name(UPDATED_NAME);
+            .name(UPDATED_NAME)
+            .group(UPDATED_GROUP);
 
         restTeamMockMvc.perform(put("/api/teams")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -196,6 +204,7 @@ public class TeamResourceIntTest {
         assertThat(teamList).hasSize(databaseSizeBeforeUpdate);
         Team testTeam = teamList.get(teamList.size() - 1);
         assertThat(testTeam.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testTeam.getGroup()).isEqualTo(UPDATED_GROUP);
     }
 
     @Test

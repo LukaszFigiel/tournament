@@ -3,7 +3,8 @@ entity Player {
 }
 
 entity Team {
-	name String
+	name String,
+    group String
 }
 
 entity Match {
@@ -19,7 +20,8 @@ entity League {
 }
 
 entity Season {
-	number Integer
+	number Integer,
+    groupsCount Integer
 }
 
 relationship ManyToOne {
