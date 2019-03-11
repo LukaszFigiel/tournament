@@ -99,6 +99,26 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'season',
                 loadChildren: './season/season.module#TournamentSeasonModule'
+            },
+            {
+                path: 'player',
+                loadChildren: './player/player.module#TournamentPlayerModule'
+            },
+            {
+                path: 'team',
+                loadChildren: './team/team.module#TournamentTeamModule'
+            },
+            {
+                path: 'match',
+                loadChildren: './match/match.module#TournamentMatchModule'
+            },
+            {
+                path: 'league',
+                loadChildren: './league/league.module#TournamentLeagueModule'
+            },
+            {
+                path: 'season',
+                loadChildren: './season/season.module#TournamentSeasonModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])
