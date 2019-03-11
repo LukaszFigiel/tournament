@@ -37,6 +37,10 @@ relationship OneToMany {
     League{season} to Season,
 }
 
+enum matchStage {
+	GROUP, QUATER_FINAL, SEMI_FINAL, THIRD_PLACE, FINAL    
+}
+
 // Set pagination options
 paginate Team, Player with infinite-scroll
 
