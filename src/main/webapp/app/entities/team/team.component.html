@@ -16,6 +16,7 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
             <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="name"><span>Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="group"><span>Group</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="player1.id"><span>Player 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="player2.id"><span>Player 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="season.id"><span>Season</span> <fa-icon [icon]="'sort'"></fa-icon></th>
@@ -26,6 +27,7 @@
             <tr *ngFor="let team of teams ;trackBy: trackId">
                 <td><a [routerLink]="['/team', team.id, 'view' ]">{{team.id}}</a></td>
                 <td>{{team.name}}</td>
+                <td>{{team.group}}</td>
                 <td>
                     <div *ngIf="team.player1">
                         <a [routerLink]="['../player', team.player1?.id, 'view' ]" >{{team.player1?.id}}</a>

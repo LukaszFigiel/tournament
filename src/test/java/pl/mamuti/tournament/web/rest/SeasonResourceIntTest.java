@@ -44,6 +44,9 @@ public class SeasonResourceIntTest {
     private static final Integer DEFAULT_NUMBER = 1;
     private static final Integer UPDATED_NUMBER = 2;
 
+    private static final Integer DEFAULT_GROUPS_COUNT = 1;
+    private static final Integer UPDATED_GROUPS_COUNT = 2;
+
     @Autowired
     private SeasonRepository seasonRepository;
 
@@ -89,7 +92,8 @@ public class SeasonResourceIntTest {
      */
     public static Season createEntity(EntityManager em) {
         Season season = new Season()
-            .number(DEFAULT_NUMBER);
+            .number(DEFAULT_NUMBER)
+            .groupsCount(DEFAULT_GROUPS_COUNT);
         return season;
     }
 
@@ -114,6 +118,7 @@ public class SeasonResourceIntTest {
         assertThat(seasonList).hasSize(databaseSizeBeforeCreate + 1);
         Season testSeason = seasonList.get(seasonList.size() - 1);
         assertThat(testSeason.getNumber()).isEqualTo(DEFAULT_NUMBER);
+        assertThat(testSeason.getGroupsCount()).isEqualTo(DEFAULT_GROUPS_COUNT);
     }
 
     @Test
@@ -146,7 +151,8 @@ public class SeasonResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(season.getId().intValue())))
-            .andExpect(jsonPath("$.[*].number").value(hasItem(DEFAULT_NUMBER)));
+            .andExpect(jsonPath("$.[*].number").value(hasItem(DEFAULT_NUMBER)))
+            .andExpect(jsonPath("$.[*].groupsCount").value(hasItem(DEFAULT_GROUPS_COUNT)));
     }
     
     @Test
@@ -160,7 +166,8 @@ public class SeasonResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(season.getId().intValue()))
-            .andExpect(jsonPath("$.number").value(DEFAULT_NUMBER));
+            .andExpect(jsonPath("$.number").value(DEFAULT_NUMBER))
+            .andExpect(jsonPath("$.groupsCount").value(DEFAULT_GROUPS_COUNT));
     }
 
     @Test
@@ -184,7 +191,8 @@ public class SeasonResourceIntTest {
         // Disconnect from session so that the updates on updatedSeason are not directly saved in db
         em.detach(updatedSeason);
         updatedSeason
-            .number(UPDATED_NUMBER);
+            .number(UPDATED_NUMBER)
+            .groupsCount(UPDATED_GROUPS_COUNT);
 
         restSeasonMockMvc.perform(put("/api/seasons")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -196,6 +204,7 @@ public class SeasonResourceIntTest {
         assertThat(seasonList).hasSize(databaseSizeBeforeUpdate);
         Season testSeason = seasonList.get(seasonList.size() - 1);
         assertThat(testSeason.getNumber()).isEqualTo(UPDATED_NUMBER);
+        assertThat(testSeason.getGroupsCount()).isEqualTo(UPDATED_GROUPS_COUNT);
     }
 
     @Test
