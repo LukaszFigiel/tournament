@@ -11,11 +11,12 @@ import {
     leagueRoute,
     leaguePopupRoute
 } from './';
+import { TournamentElementsModule } from '../../elements/elements.module';
 
 const ENTITY_STATES = [...leagueRoute, ...leaguePopupRoute];
 
 @NgModule({
-    imports: [TournamentSharedModule, RouterModule.forChild(ENTITY_STATES)],
+    imports: [TournamentSharedModule, TournamentElementsModule, RouterModule.forChild(ENTITY_STATES)],
     declarations: [LeagueComponent, LeagueDetailComponent, LeagueUpdateComponent, LeagueDeleteDialogComponent, LeagueDeletePopupComponent],
     entryComponents: [LeagueComponent, LeagueUpdateComponent, LeagueDeleteDialogComponent, LeagueDeletePopupComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

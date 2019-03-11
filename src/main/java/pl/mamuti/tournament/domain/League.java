@@ -18,7 +18,7 @@ import java.util.Objects;
 public class League implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,7 +26,7 @@ public class League implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "league")
+    @OneToMany(mappedBy = "league", fetch = FetchType.EAGER)
     private Set<Season> seasons = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {

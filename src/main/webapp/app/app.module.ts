@@ -1,7 +1,7 @@
 import './vendor.ts';
 
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+// import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2Webstorage } from 'ngx-webstorage';
@@ -20,20 +20,18 @@ import { TournamentEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TournamentElementsModule } from './elements/elements.module';
 
 @NgModule({
     imports: [
-        BrowserModule,
+        BrowserAnimationsModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-' }),
-        NgJhipsterModule.forRoot({
-            // set below to true to make alerts look like toast
-            alertAsToast: false,
-            alertTimeout: 5000
-        }),
         TournamentSharedModule.forRoot(),
         TournamentCoreModule,
         TournamentHomeModule,
         TournamentAccountModule,
+        TournamentElementsModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
         TournamentEntityModule,
         TournamentAppRoutingModule
@@ -61,7 +59,8 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
             multi: true
         }
     ],
-    bootstrap: [JhiMainComponent]
+    bootstrap: [JhiMainComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class TournamentAppModule {
     constructor(private dpConfig: NgbDatepickerConfig) {
