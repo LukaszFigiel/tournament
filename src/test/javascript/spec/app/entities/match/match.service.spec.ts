@@ -5,7 +5,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
 import { MatchService } from 'app/entities/match/match.service';
-import { IMatch, Match } from 'app/shared/model/match.model';
+import { IMatch, Match, MatchStage } from 'app/shared/model/match.model';
 
 describe('Service Tests', () => {
     describe('Match Service', () => {
@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(MatchService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new Match(0, false, 0, 0, 0, 0);
+            elemDefault = new Match(0, false, MatchStage.GROUP, 0, 0, 0, 0);
         });
 
         describe('Service methods', async () => {
@@ -56,6 +56,7 @@ describe('Service Tests', () => {
                 const returnedFromService = Object.assign(
                     {
                         played: true,
+                        stage: 'BBBBBB',
                         team1Score: 1,
                         team2Score: 1,
                         team1Goals: 1,
@@ -77,6 +78,7 @@ describe('Service Tests', () => {
                 const returnedFromService = Object.assign(
                     {
                         played: true,
+                        stage: 'BBBBBB',
                         team1Score: 1,
                         team2Score: 1,
                         team1Goals: 1,

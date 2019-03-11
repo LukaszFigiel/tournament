@@ -16,6 +16,7 @@
             <tr>
             <th><span>ID</span></th>
             <th><span>Played</span></th>
+            <th><span>Stage</span></th>
             <th><span>Team 1 Score</span></th>
             <th><span>Team 2 Score</span></th>
             <th><span>Team 1 Goals</span></th>
@@ -30,6 +31,7 @@
             <tr *ngFor="let match of matches ;trackBy: trackId">
                 <td><a [routerLink]="['/match', match.id, 'view' ]">{{match.id}}</a></td>
                 <td>{{match.played}}</td>
+                <td>{{match.stage}}</td>
                 <td>{{match.team1Score}}</td>
                 <td>{{match.team2Score}}</td>
                 <td>{{match.team1Goals}}</td>

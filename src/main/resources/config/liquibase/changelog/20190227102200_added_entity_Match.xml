@@ -26,6 +26,10 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="stage" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
             <column name="team_1_score" type="integer">
                 <constraints nullable="true" />
             </column>

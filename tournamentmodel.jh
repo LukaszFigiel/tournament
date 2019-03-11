@@ -9,6 +9,7 @@ entity Team {
 
 entity Match {
     played Boolean,
+    stage MatchStage,
     team1Score Integer
     team2Score Integer,
     team1Goals Integer,
