@@ -1,5 +1,27 @@
-<div class="justify-content-center">
-    Here comes groups :D
-    {{season | json}}
-
+<div class="">
+    <div *ngFor="let group of groups;trackBy: trackId">
+        <div class="team-header justify-content-center">{{group.name}}</div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><span>Team</span></th>
+                <th><span>Player1</span></th>
+                <th><span>Player2</span></th>
+                <th><span>Matches</span></th>
+                <th><span>Points</span></th>
+                <th><span>Goals</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let team of group.teams;trackBy: trackId">
+                <td>{{team.name}}</td>
+                <td>{{team.player1}}</td>
+                <td>{{team.player2}}</td>
+                <td>{{team.matchesPlayed}}</td>
+                <td>{{team.points}}</td>
+                <td>{{team.goalsBalance}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

@@ -1,14 +1,18 @@
 import { Team } from '../../shared/model/team.model';
 import { Match } from '../../shared/model/match.model';
-import { calculatePoints } from 'ngx-infinite-scroll/src/services/position-resolver';
 
 export class GroupTeam {
-    public team: Team;
     public matchesPlayed: number;
     public points: number;
     public goalsBalance: number;
+    public name: string;
+    public player1: string;
+    public player2: string;
 
     constructor(public team: Team, public matches: Match[]) {
+        this.name = team.name;
+        this.player1 = team.player1 ? team.player1.name : '';
+        this.player2 = team.player2 ? team.player2.name : '';
         this.recalculatePoints(matches);
     }
 
@@ -25,7 +29,7 @@ export class GroupTeam {
         this.points = 0;
         this.goalsBalance = 0;
         if (matches) {
-            let myMatches = matches.filter(m => (m.team1 && m.team1.id === this.team.id) || (m.team2 && m.team2.id === this.team.id));
+            const myMatches = matches.filter(m => (m.team1 && m.team1.id === this.team.id) || (m.team2 && m.team2.id === this.team.id));
             myMatches.forEach(m => {
                 if (m.played) {
                     if (m.team1.id === this.team.id) {

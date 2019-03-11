@@ -3,12 +3,10 @@ import { Match } from '../../shared/model/match.model';
 import { GroupTeam } from './groupTeam.model';
 
 export class Group {
-    name: string;
     teams: GroupTeam[];
-    matches: Match[];
 
-    constructor(public name: string, private teams: Team[], public matches: Match[]) {
-        this.teams = teams.map(team => new GroupTeam(team, matches));
+    constructor(public name: string, private teamList: Team[], public matches: Match[]) {
+        this.teams = teamList.map(team => new GroupTeam(team, matches));
         this.sortTeams();
     }
 

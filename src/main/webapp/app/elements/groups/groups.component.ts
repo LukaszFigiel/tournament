@@ -22,14 +22,15 @@ export class GroupsComponent implements OnInit, OnDestroy {
                 this.getGroup(team.group).addTeam(team);
             });
         }
+        this.groups.forEach(group => group.sortTeams());
     }
 
-    private getGroup(groupName: String): Group {
-        const group = this.groups.filter(group => group.name === groupName);
-        if (group && group[0]) {
-            return group[0];
+    private getGroup(groupName: string): Group {
+        const gr = this.groups.filter(group => group.name === groupName);
+        if (gr && gr[0]) {
+            return gr[0];
         } else {
-            const newGroup = new Group(name, [], this.season.matches);
+            const newGroup = new Group(groupName, [], this.season.matches);
             this.groups.push(newGroup);
             return newGroup;
         }

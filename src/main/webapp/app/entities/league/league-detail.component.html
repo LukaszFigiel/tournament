@@ -5,8 +5,6 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
 
-            {{league | json}}
-
             <dl class="row-md jh-entity-details">
                 <dt><span>Season</span></dt>
                 <dd>
@@ -15,15 +13,13 @@
             </dl>
 
             <mat-tab-group>
-                <mat-tab label="Matches"> Content 1 </mat-tab>
                 <mat-tab label="Groups">
                     <jhi-groups [season]="getLastSeason()"></jhi-groups>
                 </mat-tab>
+                <mat-tab label="Matches">
+                    <jhi-matches [matches]="getLastSeason().matches"></jhi-matches>
+                </mat-tab>
             </mat-tab-group>
-
-
-
-
 
             <button type="submit"
                     (click)="previousState()"
