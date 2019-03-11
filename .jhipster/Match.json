@@ -6,6 +6,11 @@
             "fieldType": "Boolean"
         },
         {
+            "fieldName": "stage",
+            "fieldType": "MatchStage",
+            "fieldValues": "GROUP,QUATER_FINAL,SEMI_FINAL,THIRD_PLACE,FINAL"
+        },
+        {
             "fieldName": "team1Score",
             "fieldType": "Integer"
         },

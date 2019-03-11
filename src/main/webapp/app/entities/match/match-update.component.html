@@ -15,6 +15,16 @@
                         [(ngModel)]="match.played" />
                 </div>
                 <div class="form-group">
+                    <label class="form-control-label" for="field_stage">Stage</label>
+                    <select class="form-control" name="stage" [(ngModel)]="match.stage" id="field_stage" >
+                        <option value="GROUP">GROUP</option>
+                        <option value="QUATER_FINAL">QUATER_FINAL</option>
+                        <option value="SEMI_FINAL">SEMI_FINAL</option>
+                        <option value="THIRD_PLACE">THIRD_PLACE</option>
+                        <option value="FINAL">FINAL</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label class="form-control-label" for="field_team1Score">Team 1 Score</label>
                     <input type="number" class="form-control" name="team1Score" id="field_team1Score"
                         [(ngModel)]="match.team1Score" />

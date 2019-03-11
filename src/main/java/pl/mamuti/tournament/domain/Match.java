@@ -8,6 +8,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+import pl.mamuti.tournament.domain.enumeration.MatchStage;
+
 /**
  * A Match.
  */
@@ -23,6 +25,10 @@ public class Match implements Serializable {
 
     @Column(name = "played")
     private Boolean played;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "stage")
+    private MatchStage stage;
 
     @Column(name = "team_1_score")
     private Integer team1Score;
@@ -68,6 +74,19 @@ public class Match implements Serializable {
 
     public void setPlayed(Boolean played) {
         this.played = played;
+    }
+
+    public MatchStage getStage() {
+        return stage;
+    }
+
+    public Match stage(MatchStage stage) {
+        this.stage = stage;
+        return this;
+    }
+
+    public void setStage(MatchStage stage) {
+        this.stage = stage;
     }
 
     public Integer getTeam1Score() {
@@ -187,6 +206,7 @@ public class Match implements Serializable {
         return "Match{" +
             "id=" + getId() +
             ", played='" + isPlayed() + "'" +
+            ", stage='" + getStage() + "'" +
             ", team1Score=" + getTeam1Score() +
             ", team2Score=" + getTeam2Score() +
             ", team1Goals=" + getTeam1Goals() +

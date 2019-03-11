@@ -32,6 +32,7 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import pl.mamuti.tournament.domain.enumeration.MatchStage;
 /**
  * Test class for the MatchResource REST controller.
  *
@@ -43,6 +44,9 @@ public class MatchResourceIntTest {
 
     private static final Boolean DEFAULT_PLAYED = false;
     private static final Boolean UPDATED_PLAYED = true;
+
+    private static final MatchStage DEFAULT_STAGE = MatchStage.GROUP;
+    private static final MatchStage UPDATED_STAGE = MatchStage.QUATER_FINAL;
 
     private static final Integer DEFAULT_TEAM_1_SCORE = 1;
     private static final Integer UPDATED_TEAM_1_SCORE = 2;
@@ -102,6 +106,7 @@ public class MatchResourceIntTest {
     public static Match createEntity(EntityManager em) {
         Match match = new Match()
             .played(DEFAULT_PLAYED)
+            .stage(DEFAULT_STAGE)
             .team1Score(DEFAULT_TEAM_1_SCORE)
             .team2Score(DEFAULT_TEAM_2_SCORE)
             .team1Goals(DEFAULT_TEAM_1_GOALS)
@@ -130,6 +135,7 @@ public class MatchResourceIntTest {
         assertThat(matchList).hasSize(databaseSizeBeforeCreate + 1);
         Match testMatch = matchList.get(matchList.size() - 1);
         assertThat(testMatch.isPlayed()).isEqualTo(DEFAULT_PLAYED);
+        assertThat(testMatch.getStage()).isEqualTo(DEFAULT_STAGE);
         assertThat(testMatch.getTeam1Score()).isEqualTo(DEFAULT_TEAM_1_SCORE);
         assertThat(testMatch.getTeam2Score()).isEqualTo(DEFAULT_TEAM_2_SCORE);
         assertThat(testMatch.getTeam1Goals()).isEqualTo(DEFAULT_TEAM_1_GOALS);
@@ -167,6 +173,7 @@ public class MatchResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(match.getId().intValue())))
             .andExpect(jsonPath("$.[*].played").value(hasItem(DEFAULT_PLAYED.booleanValue())))
+            .andExpect(jsonPath("$.[*].stage").value(hasItem(DEFAULT_STAGE.toString())))
             .andExpect(jsonPath("$.[*].team1Score").value(hasItem(DEFAULT_TEAM_1_SCORE)))
             .andExpect(jsonPath("$.[*].team2Score").value(hasItem(DEFAULT_TEAM_2_SCORE)))
             .andExpect(jsonPath("$.[*].team1Goals").value(hasItem(DEFAULT_TEAM_1_GOALS)))
@@ -185,6 +192,7 @@ public class MatchResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(match.getId().intValue()))
             .andExpect(jsonPath("$.played").value(DEFAULT_PLAYED.booleanValue()))
+            .andExpect(jsonPath("$.stage").value(DEFAULT_STAGE.toString()))
             .andExpect(jsonPath("$.team1Score").value(DEFAULT_TEAM_1_SCORE))
             .andExpect(jsonPath("$.team2Score").value(DEFAULT_TEAM_2_SCORE))
             .andExpect(jsonPath("$.team1Goals").value(DEFAULT_TEAM_1_GOALS))
@@ -213,6 +221,7 @@ public class MatchResourceIntTest {
         em.detach(updatedMatch);
         updatedMatch
             .played(UPDATED_PLAYED)
+            .stage(UPDATED_STAGE)
             .team1Score(UPDATED_TEAM_1_SCORE)
             .team2Score(UPDATED_TEAM_2_SCORE)
             .team1Goals(UPDATED_TEAM_1_GOALS)
@@ -228,6 +237,7 @@ public class MatchResourceIntTest {
         assertThat(matchList).hasSize(databaseSizeBeforeUpdate);
         Match testMatch = matchList.get(matchList.size() - 1);
         assertThat(testMatch.isPlayed()).isEqualTo(UPDATED_PLAYED);
+        assertThat(testMatch.getStage()).isEqualTo(UPDATED_STAGE);
         assertThat(testMatch.getTeam1Score()).isEqualTo(UPDATED_TEAM_1_SCORE);
         assertThat(testMatch.getTeam2Score()).isEqualTo(UPDATED_TEAM_2_SCORE);
         assertThat(testMatch.getTeam1Goals()).isEqualTo(UPDATED_TEAM_1_GOALS);
