@@ -1,5 +1,7 @@
 package pl.mamuti.tournament.service.impl;
 
+import pl.mamuti.tournament.domain.Match;
+import pl.mamuti.tournament.domain.Team;
 import pl.mamuti.tournament.service.SeasonService;
 import pl.mamuti.tournament.domain.Season;
 import pl.mamuti.tournament.repository.SeasonRepository;
@@ -9,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,6 +54,25 @@ public class SeasonServiceImpl implements SeasonService {
         return seasonRepository.findAll();
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public List<Match> findSeasonMatches(Long seasonId) {
+        log.debug("Request to get all Matches for season: {}", seasonId);
+        return seasonRepository
+            .findById(seasonId)
+            .map(season -> new ArrayList<>(season.getMatches()))
+            .orElse(new ArrayList<>());
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Team> findSeasonTeams(Long seasonId) {
+        log.debug("Request to get all Teams for season: {}", seasonId);
+        return seasonRepository
+            .findById(seasonId)
+            .map(season -> new ArrayList<>(season.getTeams()))
+            .orElse(new ArrayList<>());
+    }
 
     /**
      * Get one season by id.

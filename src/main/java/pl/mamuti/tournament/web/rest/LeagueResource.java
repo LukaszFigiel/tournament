@@ -1,6 +1,8 @@
 package pl.mamuti.tournament.web.rest;
 import pl.mamuti.tournament.domain.League;
+import pl.mamuti.tournament.domain.Season;
 import pl.mamuti.tournament.service.LeagueService;
+import pl.mamuti.tournament.service.SeasonService;
 import pl.mamuti.tournament.web.rest.errors.BadRequestAlertException;
 import pl.mamuti.tournament.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,8 +32,11 @@ public class LeagueResource {
 
     private final LeagueService leagueService;
 
-    public LeagueResource(LeagueService leagueService) {
+    private final SeasonService seasonService;
+
+    public LeagueResource(LeagueService leagueService, SeasonService seasonService) {
         this.leagueService = leagueService;
+        this.seasonService = seasonService;
     }
 
     /**
@@ -81,6 +88,20 @@ public class LeagueResource {
     public List<League> getAllLeagues() {
         log.debug("REST request to get all Leagues");
         return leagueService.findAll();
+    }
+
+    /**
+     * GET  /leagues/seasons/:id : get all the seasons fpr leagues.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of leagues in body
+     */
+    @GetMapping("/leagues/seasons/{id}")
+    public List<Season> getAllSeasonsForLeague(@PathVariable Long id) {
+        log.debug("REST request to get all seasons for League");
+        Optional<League> optional = leagueService.findOne(id);
+        return optional
+            .map(league -> new ArrayList<>(league.getSeasons()))
+            .orElse(new ArrayList<>());
     }
 
     /**

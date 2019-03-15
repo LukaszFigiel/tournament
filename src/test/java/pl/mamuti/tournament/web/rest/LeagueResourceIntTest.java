@@ -5,6 +5,7 @@ import pl.mamuti.tournament.TournamentApp;
 import pl.mamuti.tournament.domain.League;
 import pl.mamuti.tournament.repository.LeagueRepository;
 import pl.mamuti.tournament.service.LeagueService;
+import pl.mamuti.tournament.service.SeasonService;
 import pl.mamuti.tournament.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -51,6 +52,9 @@ public class LeagueResourceIntTest {
     private LeagueService leagueService;
 
     @Autowired
+    private SeasonService seasonService;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -72,7 +76,7 @@ public class LeagueResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final LeagueResource leagueResource = new LeagueResource(leagueService);
+        final LeagueResource leagueResource = new LeagueResource(leagueService, seasonService);
         this.restLeagueMockMvc = MockMvcBuilders.standaloneSetup(leagueResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -148,7 +152,7 @@ public class LeagueResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(league.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
     }
-    
+
     @Test
     @Transactional
     public void getLeague() throws Exception {

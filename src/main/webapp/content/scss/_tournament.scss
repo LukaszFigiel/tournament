@@ -5,3 +5,29 @@
     background-color: #f8f9fa;
     color: #343a40;
 }
+
+.match_table {
+    width: 99%;
+    td {
+        text-align: center;
+    }
+    .match_label {
+        text-align: left;
+        font-style: italic;
+    }
+    .match_team_name {
+        font-weight: 700;
+        background-color: #f8f9fa;
+        margin-top: 1rem;
+    }
+    .match_player_name {
+        font-weight: 700;
+        margin-top: 1rem;
+    }
+    .br-right {
+        border-right: 1px solid #f8f9fa;
+    }
+    .empty {
+        min-height: 1rem;
+    }
+}

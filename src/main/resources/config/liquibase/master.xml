@@ -15,5 +15,6 @@
     <include file="config/liquibase/changelog/20190227102159_added_entity_constraints_Team.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190227102200_added_entity_constraints_Match.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190307072345_added_entity_constraints_Season.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190311113800_Match_add_stage.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

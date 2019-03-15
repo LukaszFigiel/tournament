@@ -5,9 +5,11 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { ILeague } from 'app/shared/model/league.model';
+import { ISeason } from '../../shared/model/season.model';
 
 type EntityResponseType = HttpResponse<ILeague>;
 type EntityArrayResponseType = HttpResponse<ILeague[]>;
+type EntityArraySeasonResponseType = HttpResponse<ISeason[]>;
 
 @Injectable({ providedIn: 'root' })
 export class LeagueService {
@@ -25,6 +27,10 @@ export class LeagueService {
 
     find(id: number): Observable<EntityResponseType> {
         return this.http.get<ILeague>(`${this.resourceUrl}/${id}`, { observe: 'response' });
+    }
+
+    findAllSeasons(id: number): Observable<EntityArraySeasonResponseType> {
+        return this.http.get<ISeason[]>(`${this.resourceUrl}/seasons/${id}`, { observe: 'response' });
     }
 
     query(req?: any): Observable<EntityArrayResponseType> {

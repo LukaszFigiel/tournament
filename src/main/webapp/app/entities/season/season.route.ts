@@ -5,12 +5,12 @@ import { UserRouteAccessService } from 'app/core';
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { Season } from 'app/shared/model/season.model';
-import { SeasonService } from './season.service';
 import { SeasonComponent } from './season.component';
 import { SeasonDetailComponent } from './season-detail.component';
 import { SeasonUpdateComponent } from './season-update.component';
 import { SeasonDeletePopupComponent } from './season-delete-dialog.component';
 import { ISeason } from 'app/shared/model/season.model';
+import { SeasonService } from './season.service';
 
 @Injectable({ providedIn: 'root' })
 export class SeasonResolve implements Resolve<ISeason> {

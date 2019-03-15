@@ -9,6 +9,7 @@ entity Team {
 
 entity Match {
     played Boolean,
+    stage MatchStage,
     team1Score Integer
     team2Score Integer,
     team1Goals Integer,
@@ -38,7 +39,7 @@ relationship OneToMany {
 }
 
 enum MatchStage {
-	GROUP, QUATER_FINAL, SEMI_FINAL, THIRD_PLACE, FINAL    
+	GROUP, QUATER_FINAL, SEMI_FINAL, THIRD_PLACE, FINAL
 }
 
 // Set pagination options

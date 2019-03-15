@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
 import { ISeason } from 'app/shared/model/season.model';
-import { SeasonService } from './season.service';
 import { ILeague } from 'app/shared/model/league.model';
 import { LeagueService } from 'app/entities/league';
+import { SeasonService } from './season.service';
 
 @Component({
     selector: 'jhi-season-update',

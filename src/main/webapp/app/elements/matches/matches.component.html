@@ -1,5 +1,51 @@
 <div class="">
-    <div *ngFor="let group of groups;trackBy: trackId">
+    {{matches | json}}
+    <div *ngIf="!season.matches || !season.matches[0]">
+        <button class="btn btn-primary float-left jh-create-entity create-match" (click)="generateGroupMatches()">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Generate Matches
+            </span>
+        </button>
+    </div>
+    {{selected}}<br />
+    <div *ngIf="season.matches && season.matches[0]">
+        <mat-tab-group #tabGroup >
+            <mat-tab *ngFor="let group of groupMatches; trackBy: groupName; let index = index;" [label]="group.groupName">
+                <table class="match_table" cellpadding="5px">
+                    <tbody *ngFor="let match of group.matches">
+                        <tr class="empty"><td>&nbsp;</td></tr>
+
+                        <tr class="match_team_name">
+                            <td class="br-right"></td>
+                            <td colspan="2"><span>{{match.team1.name}}</span></td>
+                            <td colspan="2"><span>{{match.team2.name}}</span></td>
+                        </tr>
+                        <tr class="match_player_name">
+                            <td class="br-right"></td>
+                            <td><span>{{match.team1.player1.name}}</span></td>
+                            <td class="br-right"><span>{{match.team1.player2.name}}</span></td>
+                            <td><span>{{match.team2.player1.name}}</span></td>
+                            <td><span>{{match.team2.player2.name}}</span></td>
+                        </tr>
+                        <tr>
+                            <td class="match_label br-right">Points</td>
+                            <td colspan="2" class="br-right"><span>{{match.team1Score}}</span></td>
+                            <td colspan="2"><span>{{match.team2Score}}</span></td>
+                        </tr>
+                        <tr>
+                            <td class="match_label br-right">Goals</td>
+                            <td colspan="2" class="br-right"><span>{{match.team1Goals}}</span></td>
+                            <td colspan="2"><span>{{match.team2Goals}}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+
+
+    <div *ngFor="let match of groups;trackBy: trackId">
         <div class="team-header justify-content-center">{{group.name}}</div>
         <table class="table table-striped">
             <thead>

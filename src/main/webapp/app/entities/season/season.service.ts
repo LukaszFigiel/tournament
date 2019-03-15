@@ -5,9 +5,13 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { ISeason } from 'app/shared/model/season.model';
+import { IMatch } from 'app/shared/model/match.model';
+import { ITeam } from 'app/shared/model/team.model';
 
 type EntityResponseType = HttpResponse<ISeason>;
 type EntityArrayResponseType = HttpResponse<ISeason[]>;
+type EntityArrayTeamResponseType = HttpResponse<ITeam[]>;
+type EntityArrayMatchResponseType = HttpResponse<IMatch[]>;
 
 @Injectable({ providedIn: 'root' })
 export class SeasonService {
@@ -25,6 +29,14 @@ export class SeasonService {
 
     find(id: number): Observable<EntityResponseType> {
         return this.http.get<ISeason>(`${this.resourceUrl}/${id}`, { observe: 'response' });
+    }
+
+    findAllTeams(id: number): Observable<EntityArrayTeamResponseType> {
+        return this.http.get<ITeam[]>(`${this.resourceUrl}/teams/${id}`, { observe: 'response' });
+    }
+
+    findAllMatches(id: number): Observable<EntityArrayMatchResponseType> {
+        return this.http.get<IMatch[]>(`${this.resourceUrl}/matches/${id}`, { observe: 'response' });
     }
 
     query(req?: any): Observable<EntityArrayResponseType> {

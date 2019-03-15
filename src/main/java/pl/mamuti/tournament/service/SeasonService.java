@@ -1,6 +1,8 @@
 package pl.mamuti.tournament.service;
 
+import pl.mamuti.tournament.domain.Match;
 import pl.mamuti.tournament.domain.Season;
+import pl.mamuti.tournament.domain.Team;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +27,19 @@ public interface SeasonService {
      */
     List<Season> findAll();
 
+    /**
+     * Return all matches for season
+     * @param seasonId
+     * @return the list of matches
+     */
+    List<Match> findSeasonMatches(Long seasonId);
+
+    /**
+     * Return all teams for season
+     * @param seasonId
+     * @return the list of teams
+     */
+    List<Team> findSeasonTeams(Long seasonId);
 
     /**
      * Get the "id" season.

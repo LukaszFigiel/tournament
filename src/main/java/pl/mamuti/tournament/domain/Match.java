@@ -16,13 +16,17 @@ import java.util.Objects;
 public class Match implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "played")
     private Boolean played;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "stage")
+    private MatchStage stage;
 
     @Column(name = "team_1_score")
     private Integer team1Score;
@@ -37,14 +41,14 @@ public class Match implements Serializable {
     private Integer team2Goals;
 
     @ManyToOne
-    @JsonIgnoreProperties("matches")
+    @JsonIgnoreProperties({"matches","season"})
     private Team team1;
 
     @ManyToOne
-    @JsonIgnoreProperties("matches")
+    @JsonIgnoreProperties({"matches","season"})
     private Team team2;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties("matches")
     private Season season;
 
@@ -68,6 +72,19 @@ public class Match implements Serializable {
 
     public void setPlayed(Boolean played) {
         this.played = played;
+    }
+
+    public MatchStage getStage() {
+        return stage;
+    }
+
+    public Match stage(MatchStage stage) {
+        this.stage = stage;
+        return this;
+    }
+
+    public void setStage(MatchStage stage) {
+        this.stage = stage;
     }
 
     public Integer getTeam1Score() {
@@ -187,6 +204,7 @@ public class Match implements Serializable {
         return "Match{" +
             "id=" + getId() +
             ", played='" + isPlayed() + "'" +
+            ", stage='" + getStage() + "'" +
             ", team1Score=" + getTeam1Score() +
             ", team2Score=" + getTeam2Score() +
             ", team1Goals=" + getTeam1Goals() +

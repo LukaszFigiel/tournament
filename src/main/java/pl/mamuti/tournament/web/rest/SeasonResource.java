@@ -1,5 +1,8 @@
 package pl.mamuti.tournament.web.rest;
+import pl.mamuti.tournament.domain.League;
+import pl.mamuti.tournament.domain.Match;
 import pl.mamuti.tournament.domain.Season;
+import pl.mamuti.tournament.domain.Team;
 import pl.mamuti.tournament.service.SeasonService;
 import pl.mamuti.tournament.web.rest.errors.BadRequestAlertException;
 import pl.mamuti.tournament.web.rest.util.HeaderUtil;
@@ -12,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -81,6 +86,28 @@ public class SeasonResource {
     public List<Season> getAllSeasons() {
         log.debug("REST request to get all Seasons");
         return seasonService.findAll();
+    }
+
+    /**
+     * GET  /seasons/teams/:id : get all teams for season.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of teams in body
+     */
+    @GetMapping("/seasons/teams/{id}")
+    public List<Team> getAllTeamsForSeason(@PathVariable Long id) {
+        log.debug("REST request to get all teams for Season");
+        return seasonService.findSeasonTeams(id);
+    }
+
+    /**
+     * GET  /seasons/teams/:id : get all matches for season.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of matches in body
+     */
+    @GetMapping("/seasons/matches/{id}")
+    public List<Match> getAllMatchesForSeason(@PathVariable Long id) {
+        log.debug("REST request to get all matches for Season");
+        return seasonService.findSeasonMatches(id);
     }
 
     /**
